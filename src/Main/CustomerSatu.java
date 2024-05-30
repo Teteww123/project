@@ -10,7 +10,7 @@ import javax.swing.JTable;
 
 public class CustomerSatu extends javax.swing.JFrame {
 private int h,i;
-private double totalMa, totalMi;
+
 
 
 
@@ -134,12 +134,15 @@ private double totalMa, totalMi;
         });
 
         harga2.setEditable(false);
+        harga2.setDoubleBuffered(true);
+        harga2.setDragEnabled(true);
         harga2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 harga2ActionPerformed(evt);
             }
         });
 
+        totalHarga.setEditable(false);
         totalHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalHargaActionPerformed(evt);
@@ -344,6 +347,7 @@ private double totalMa, totalMi;
         maHarga=Integer.parseInt(harga1.getText());
         beli=Integer.parseInt(jumlahMa.getText());
         totalMa=beli*maHarga;
+        
     }//GEN-LAST:event_jumlahMaActionPerformed
 
     private void jumlahMiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahMiActionPerformed
@@ -355,9 +359,7 @@ private double totalMa, totalMi;
     }//GEN-LAST:event_jumlahMiActionPerformed
 
     private void totalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalHargaActionPerformed
-       double hasilMakan,hasilMinum;
-       hasilMakan=Double.parseDouble(totalMa());
-       hasilMinum=Double.parseDouble(totalMi());
+       int jumlahMakanan = Integer.parseInt(totalMa.getText());
     }//GEN-LAST:event_totalHargaActionPerformed
 
     /**
@@ -396,6 +398,8 @@ private double totalMa, totalMi;
         });
     }
 
+    
+    
     public JTable getTabelmakanan() {
         return Tabelmakanan;
     }
@@ -439,8 +443,8 @@ private double totalMa, totalMi;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jumlahMa;
-    private javax.swing.JTextField jumlahMi;
+    public javax.swing.JTextField jumlahMa;
+    public javax.swing.JTextField jumlahMi;
     private javax.swing.JTextField totalHarga;
     // End of variables declaration//GEN-END:variables
 }
