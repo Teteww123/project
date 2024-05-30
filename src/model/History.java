@@ -22,7 +22,7 @@ public class History {
     }
 
     public void save() {
-        try (Connection conn = Database.getConnection()) {
+        try (Connection conn = Database.connect()) {
             String sql = "INSERT INTO riwayat_pemesanan (customer_name, total_price) VALUES (?, ?)";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, customerName);

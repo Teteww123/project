@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.makanan.*;
 import model.minuman.*;
+import model.riwayat.Modelriwayat;
 
 public class RestaurantController {
     private MainView mainView;
@@ -67,7 +68,7 @@ public class RestaurantController {
     }
 
     private void loadMenuItems() {
-        try (Connection conn = Database.getConnection()) {
+        try (Connection conn = Database.connect()) {
             Statement stmt = conn.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * FROM makanan");
@@ -126,7 +127,7 @@ public class RestaurantController {
         public void actionPerformed(ActionEvent e) {
             List<History> historyList = new ArrayList<>();
 
-            try (Connection conn = Database.getConnection()) {
+            try (Connection conn = Database.connect()) {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM riwayat_pemesanan");
 
